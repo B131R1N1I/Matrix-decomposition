@@ -1,4 +1,5 @@
 """Lu"""
+from numpy import matmul
 a = [[5, 3, 2],
      [1, 2, 0],
      [3, 0, 4]]
@@ -43,6 +44,9 @@ def main():
         print("*")
         for i in U:
             print(i)
+        boo = matmul(L, U)
+        print(a == boo)
+
 
 
 main()
