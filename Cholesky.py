@@ -1,18 +1,10 @@
 """Cholesky decomposition"""
 from math import sqrt
-from numpy import matmul
-
-a = [[1, -2, 3, 1],
-     [-2, 5, -8, 1],
-     [3, -8, 17, -7],
-     [1, 1, -7, 18]]
-
-
 def cholesky(matrix):
     """
     Lt * L = matrix
     :param matrix: matrix to decompose
-    :return: L, Lt
+    :return: (tuple of lists) L, Lt
     """
     # Matrix L with unknown quantities
     L = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))]
@@ -36,21 +28,3 @@ def cholesky(matrix):
         for j in range(len(matrix)):
             Lt[i][j] = L[j][i]
     return L, Lt
-
-
-def main():
-    """Main function"""
-    if __name__ == '__main__':
-        L, Lt = cholesky(a)
-        print("L = ")
-        for i in L:
-            print(i)
-        print("\nLt = ")
-        for i in Lt:
-            print(i)
-        print("\n")
-        boo = matmul(L, Lt)
-        print(a == boo)
-
-
-main()
